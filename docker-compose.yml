@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    container_name: react-app
+    restart: unless-stopped
+    build:
+      args:
+        user: user
+        uid: 1000
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./code:/var/www/app
+    ports:
+      - "8803:80"
+      - "8300:3000"
+
